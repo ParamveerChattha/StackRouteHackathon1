@@ -19,12 +19,13 @@ public class UserController
 	UserService userservice;
 	
 	@RequestMapping(method=RequestMethod.GET , value="/getall")
+	// get details from database
 	public ResponseEntity<List<User>> getAllUsers()
 	{
 		List<User> user=userservice.getAllUsers();
 		return ResponseEntity.ok(user);
 	}
-	
+	// Save user's Data to the Database
 	@RequestMapping(method=RequestMethod.POST, value="/create")
 	public ResponseEntity<String> create(@RequestBody User user)
 	{
@@ -32,13 +33,14 @@ public class UserController
 		String create= "Users saved Successfully";
 		return ResponseEntity.ok(create);
 	}
-
+	// delete user record on request
 	@RequestMapping(method=RequestMethod.DELETE , value="/delete")
 	public ResponseEntity<String> delete(@RequestBody User user)
 	{
 		String delete=userservice.delete(user);
 		return ResponseEntity.ok(delete);
 	}
+	//update user data on request 
 	@RequestMapping(method=RequestMethod.PUT, value="update")
 	public ResponseEntity<User> update(@RequestBody User user)
 	{

@@ -5,6 +5,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User 
+// User's structure as to be stored in DB.
 {
 	@Id
  private int id;
