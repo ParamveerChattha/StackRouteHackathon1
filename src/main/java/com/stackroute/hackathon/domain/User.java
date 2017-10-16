@@ -2,7 +2,7 @@ package com.stackroute.hackathon.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+//Creating structure for the database
 @Entity
 public class User 
 {

@@ -16,17 +16,21 @@ import com.stackroute.hackathon.service.UserService;
 @RestController
 public class UserController 
 {
+	//using object of UserService Interface to implement Crud Methods which it has extended in it.
 	@Autowired
 	UserService userservice;
-	
+	//using requestMapping which user is asking for all the users
 	@RequestMapping(method=RequestMethod.GET , value="/getall")
+	//Creating a method getALlUser with returntype Response Entity of type List taking in Users
 	public ResponseEntity<List<User>> getAllUsers()
 	{
+		//Assigning outsput of getAllusers method to user variable of type list which intakes users
 		List<User> user=userservice.getAllUsers();
 		return ResponseEntity.ok(user);
 	}
-	
+	//when user wanto to store details of a user
 	@RequestMapping(method=RequestMethod.POST, value="/create")
+	//Using the method of of UserService Interface.
 	public ResponseEntity<String> create(@RequestBody User user) throws Exception
 	{
 		if(user.getName().isEmpty()||user.getEmail().isEmpty()) {
@@ -37,7 +41,7 @@ public class UserController
 		return ResponseEntity.ok(create);
 		}
 	}
-
+// Delete the user for the id requested by user
 	@RequestMapping(method=RequestMethod.DELETE , value="/delete" , produces="text/plain")
 	public ResponseEntity<String> delete(User user)
 	{
