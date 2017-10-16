@@ -5,7 +5,6 @@ import javax.persistence.Id;
 
 @Entity
 public class User 
-// User's structure as to be stored in DB.
 {
 	@Id
  private int id;
@@ -36,5 +35,12 @@ public String getEmail() {
 }
 public void setEmail(String email) {
 	this.email = email;
+}
+
+public User(int id,String name,String address,String email) {
+	this.id = id;
+	this.name=name;
+	this.address=address;
+	this.email=email;
 }
 }
